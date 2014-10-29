@@ -30,6 +30,7 @@
         {
             System.Windows.Forms.GroupBox groupBox2;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            this.closeCheckBox = new System.Windows.Forms.CheckBox();
             this.launcherCheckBox = new System.Windows.Forms.CheckBox();
             this.modDescription = new System.Windows.Forms.Label();
             this.modDownButton = new System.Windows.Forms.Button();
@@ -46,7 +47,6 @@
             this.buttonModsFolder = new System.Windows.Forms.Button();
             this.buttonRefreshModList = new System.Windows.Forms.Button();
             this.codesCheckedListBox = new System.Windows.Forms.CheckedListBox();
-            this.closeCheckBox = new System.Windows.Forms.CheckBox();
             groupBox2 = new System.Windows.Forms.GroupBox();
             groupBox2.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -65,6 +65,16 @@
             groupBox2.TabIndex = 2;
             groupBox2.TabStop = false;
             groupBox2.Text = "Options";
+            // 
+            // closeCheckBox
+            // 
+            this.closeCheckBox.AutoSize = true;
+            this.closeCheckBox.Location = new System.Drawing.Point(106, 19);
+            this.closeCheckBox.Name = "closeCheckBox";
+            this.closeCheckBox.Size = new System.Drawing.Size(102, 17);
+            this.closeCheckBox.TabIndex = 12;
+            this.closeCheckBox.Text = "Exit after launch";
+            this.closeCheckBox.UseVisualStyleBackColor = true;
             // 
             // launcherCheckBox
             // 
@@ -251,16 +261,6 @@
             this.codesCheckedListBox.Size = new System.Drawing.Size(120, 96);
             this.codesCheckedListBox.TabIndex = 0;
             // 
-            // closeCheckBox
-            // 
-            this.closeCheckBox.AutoSize = true;
-            this.closeCheckBox.Location = new System.Drawing.Point(106, 19);
-            this.closeCheckBox.Name = "closeCheckBox";
-            this.closeCheckBox.Size = new System.Drawing.Size(102, 17);
-            this.closeCheckBox.TabIndex = 12;
-            this.closeCheckBox.Text = "Exit after launch";
-            this.closeCheckBox.UseVisualStyleBackColor = true;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -276,7 +276,7 @@
             this.Name = "MainForm";
             this.Padding = new System.Windows.Forms.Padding(0, 0, 0, 3);
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
-            this.Text = "Storm Revolution Mod Manager";
+            this.Text = "Storm 3 Mod Manager";
             this.Load += new System.EventHandler(this.MainForm_Load);
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();

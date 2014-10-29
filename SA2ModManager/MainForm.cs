@@ -18,7 +18,7 @@ namespace SA2ModManager
 
 		//const string datadllpath = @"resource\gd_PC\DLL\Win32\Data_DLL.dll";
 		//const string datadllorigpath = @"resource\gd_PC\DLL\Win32\Data_DLL_orig.dll";
-		const string loaderinipath = @"mods\UNSRModLoader.ini";
+		const string loaderinipath = @"mods\UNS3FBModLoader.ini";
 		//const string loaderdllpath = @"mods\SA2ModLoader.dll";
 		LoaderInfo loaderini;
 		Dictionary<string, ModInfo> mods;
@@ -263,9 +263,9 @@ namespace SA2ModManager
 		{
             string launchexe;
             if (!uselauncher)
-                launchexe = "NSUNSR.exe";
+                launchexe = "NS3FB.exe";
             else
-                launchexe = "NSUNSR_launcher.exe";
+                launchexe = "NS3FB_launcher.exe";
 			Save();
 			System.Diagnostics.Process.Start(loaderini.Mods.Select((item) => mods[item].EXEFile)
 				.FirstOrDefault((item) => !string.IsNullOrEmpty(item)) ?? launchexe);
