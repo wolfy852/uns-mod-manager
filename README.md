@@ -1,7 +1,7 @@
-Ultimate Ninja Storm Revolution Mod Manager
+Ultimate Ninja Storm 3/Revolution Mod Manager
 ================
 
-This is a simple mod management utility for Naruto Shippuden: Ultimate Ninja Storm Revolution based off of MainMemory's SA2 Mod Manager. The manager functions by copying the contents of enabled mod folders to the root of the game before launching, allowing the user to avoid lots of manual work in managing their mods
+This is a simple mod management utility for Naruto Shippuden: Ultimate Ninja Storm Revolution and Ultimate Ninja Storm 3: Full Burst based off of MainMemory's SA2 Mod Manager. The manager functions by copying the contents of enabled mod folders to the root of the game before launching, allowing the user to avoid lots of manual work in managing their mods
 
 Installation
 ------------
@@ -9,7 +9,7 @@ Installation
 You can install the manager either by downloading and compiling the source code from this repository, or downloading the latest release package from [here.](https://github.com/wolfy852/unsr-mod-manager/releases) The latter is highly recommended.
 
 1. Download the zip from the releases page
-2. Extract the contents of the archive to <code>(Steam Installation Folder)\steamapps\common\NARUTO SHIPPUDEN ULTIMATE NINJA STORM REVOLUTION\</code>
+2. Extract the contents of the archive to <code>(Steam Installation Folder)\steamapps\common\NARUTO SHIPPUDEN ULTIMATE NINJA STORM REVOLUTION\</code> or <code>(Steam Installation Folder)\steamapps\common\NARUTO SHIPPUDEN Ultimate Ninja STORM 3 Full Burst\</code> for UNS3FB.
 3. Start the manager and configure your mods (details below)
 
 Adding a Mod
