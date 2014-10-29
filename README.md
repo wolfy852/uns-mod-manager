@@ -35,3 +35,4 @@ Notes
 - The manager may not function properly if not given write permissions in the game directory. Try running as administrator to fix any issues encountered from this.
 - Mod listings will be remembered after closing and relaunching, but settings such as the "Use Launcher" and "Exit after Launch" checkboxes will not be remembered after closing the manager.
 - The source code might have some screwed up indenting. Sorry about that, I'm not quite used to Visual Studio and all the code shows up properly indented there for some reason.
+- Requires .NET Framework 3.5 or higher to run.
