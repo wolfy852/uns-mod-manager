@@ -6,7 +6,7 @@ This is a simple mod management utility for Naruto Shippuden: Ultimate Ninja Sto
 Installation
 ------------
 
-You can install the manager either by downloading and compiling the source code from this repository, or downloading the latest release package from [here.](https://github.com/wolfy852/unsr-mod-manager/releases) The latter is highly recommended.
+You can install the manager either by downloading and compiling the source code from this repository, or downloading the latest release package for the corresponding game from [here.](https://github.com/wolfy852/unsr-mod-manager/releases) The latter is highly recommended.
 
 1. Download the zip from the releases page
 2. Extract the contents of the archive to <code>(Steam Installation Folder)\steamapps\common\NARUTO SHIPPUDEN ULTIMATE NINJA STORM REVOLUTION\</code> or <code>(Steam Installation Folder)\steamapps\common\NARUTO SHIPPUDEN Ultimate Ninja STORM 3 Full Burst\</code> for UNS3FB.
@@ -35,4 +35,5 @@ Notes
 - The manager may not function properly if not given write permissions in the game directory. Try running as administrator to fix any issues encountered from this.
 - Mod listings will be remembered after closing and relaunching, but settings such as the "Use Launcher" and "Exit after Launch" checkboxes will not be remembered after closing the manager.
 - The source code might have some screwed up indenting. Sorry about that, I'm not quite used to Visual Studio and all the code shows up properly indented there for some reason.
+- Make sure to double-check that you're downloading the correct manager on the release page.
 - Requires .NET Framework 3.5 or higher to run.
