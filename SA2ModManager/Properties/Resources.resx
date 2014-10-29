@@ -118,34 +118,25 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="opt_theme_on_am" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\opt_theme_on_am.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="itachi" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\itachi.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="opt_theme_on_ch" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\opt_theme_on_ch.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="kakashi" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\kakashi.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="opt_theme_on_eg" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\opt_theme_on_eg.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="madara" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\madara.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="opt_theme_on_kn" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\opt_theme_on_kn.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="sasuke" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sasuke.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="opt_theme_on_ma" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\opt_theme_on_ma.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="sasukeems" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sasukeems.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="opt_theme_on_rg" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\opt_theme_on_rg.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="sharingan" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sharingan.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="opt_theme_on_sd" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\opt_theme_on_sd.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="opt_theme_on_se" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\opt_theme_on_se.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="opt_theme_on_sn" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\opt_theme_on_sn.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="opt_theme_on_tl" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\opt_theme_on_tl.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="shisui" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\shisui.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

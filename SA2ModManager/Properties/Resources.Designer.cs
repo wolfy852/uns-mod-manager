@@ -63,9 +63,9 @@ namespace SA2ModManager.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static System.Drawing.Icon opt_theme_on_am {
+        internal static System.Drawing.Icon itachi {
             get {
-                object obj = ResourceManager.GetObject("opt_theme_on_am", resourceCulture);
+                object obj = ResourceManager.GetObject("itachi", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace SA2ModManager.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static System.Drawing.Icon opt_theme_on_ch {
+        internal static System.Drawing.Icon kakashi {
             get {
-                object obj = ResourceManager.GetObject("opt_theme_on_ch", resourceCulture);
+                object obj = ResourceManager.GetObject("kakashi", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace SA2ModManager.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static System.Drawing.Icon opt_theme_on_eg {
+        internal static System.Drawing.Icon madara {
             get {
-                object obj = ResourceManager.GetObject("opt_theme_on_eg", resourceCulture);
+                object obj = ResourceManager.GetObject("madara", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -93,9 +93,9 @@ namespace SA2ModManager.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static System.Drawing.Icon opt_theme_on_kn {
+        internal static System.Drawing.Icon sasuke {
             get {
-                object obj = ResourceManager.GetObject("opt_theme_on_kn", resourceCulture);
+                object obj = ResourceManager.GetObject("sasuke", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -103,9 +103,9 @@ namespace SA2ModManager.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static System.Drawing.Icon opt_theme_on_ma {
+        internal static System.Drawing.Icon sasukeems {
             get {
-                object obj = ResourceManager.GetObject("opt_theme_on_ma", resourceCulture);
+                object obj = ResourceManager.GetObject("sasukeems", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -113,9 +113,9 @@ namespace SA2ModManager.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static System.Drawing.Icon opt_theme_on_rg {
+        internal static System.Drawing.Icon sharingan {
             get {
-                object obj = ResourceManager.GetObject("opt_theme_on_rg", resourceCulture);
+                object obj = ResourceManager.GetObject("sharingan", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -123,39 +123,9 @@ namespace SA2ModManager.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static System.Drawing.Icon opt_theme_on_sd {
+        internal static System.Drawing.Icon shisui {
             get {
-                object obj = ResourceManager.GetObject("opt_theme_on_sd", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
-        /// </summary>
-        internal static System.Drawing.Icon opt_theme_on_se {
-            get {
-                object obj = ResourceManager.GetObject("opt_theme_on_se", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
-        /// </summary>
-        internal static System.Drawing.Icon opt_theme_on_sn {
-            get {
-                object obj = ResourceManager.GetObject("opt_theme_on_sn", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
-        /// </summary>
-        internal static System.Drawing.Icon opt_theme_on_tl {
-            get {
-                object obj = ResourceManager.GetObject("opt_theme_on_tl", resourceCulture);
+                object obj = ResourceManager.GetObject("shisui", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }

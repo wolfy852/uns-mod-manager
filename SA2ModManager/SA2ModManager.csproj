@@ -9,11 +9,26 @@
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SA2ModManager</RootNamespace>
-    <AssemblyName>SA2ModManager</AssemblyName>
+    <AssemblyName>UNSRModManager</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -35,7 +50,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>opt_theme_on_def.ico</ApplicationIcon>
+    <ApplicationIcon>sharingan.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -88,16 +103,25 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="opt_theme_on_def.ico" />
-    <None Include="Resources\opt_theme_on_tl.ico" />
-    <None Include="Resources\opt_theme_on_sn.ico" />
-    <None Include="Resources\opt_theme_on_se.ico" />
-    <None Include="Resources\opt_theme_on_sd.ico" />
-    <None Include="Resources\opt_theme_on_rg.ico" />
-    <None Include="Resources\opt_theme_on_ma.ico" />
-    <None Include="Resources\opt_theme_on_kn.ico" />
-    <None Include="Resources\opt_theme_on_eg.ico" />
-    <None Include="Resources\opt_theme_on_ch.ico" />
-    <None Include="Resources\opt_theme_on_am.ico" />
+    <None Include="Resources\itachi.ico" />
+    <None Include="Resources\sasukeems.ico" />
+    <None Include="Resources\shisui.ico" />
+    <None Include="Resources\kakashi.ico" />
+    <None Include="Resources\madara.ico" />
+    <None Include="Resources\sasuke.ico" />
+    <Content Include="sharingan.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
