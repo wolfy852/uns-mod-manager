@@ -9,7 +9,7 @@ Installation
 You can install the manager either by downloading and compiling the source code from this repository, or downloading the latest release package for the corresponding game from [here.](https://github.com/wolfy852/unsr-mod-manager/releases) The latter is highly recommended.
 
 1. Download the zip from the releases page
-2. Extract the contents of the archive to `Steam Installation Folder)\steamapps\common\NARUTO SHIPPUDEN ULTIMATE NINJA STORM REVOLUTION\` for Revolution, `(Steam Installation Folder)\steamapps\common\NARUTO SHIPPUDEN Ultimate Ninja STORM 3 Full Burst\` for UNS3FB, or (Steam Installation Folder)\steamapps\common\NARUTO SHIPPUDEN Ultimate Ninja STORM 4\ for UNS4.
+2. Extract the contents of the archive to `Steam Installation Folder)\steamapps\common\NARUTO SHIPPUDEN ULTIMATE NINJA STORM REVOLUTION\` for Revolution, `(Steam Installation Folder)\steamapps\common\NARUTO SHIPPUDEN Ultimate Ninja STORM 3 Full Burst\` for UNS3FB, or `(Steam Installation Folder)\steamapps\common\NARUTO SHIPPUDEN Ultimate Ninja STORM 4\` for UNS4.
 3. Start the manager and configure your mods (details below)
 
 Adding a Mod
@@ -18,7 +18,7 @@ Adding a Mod
 1. Run the manager
 2. Click the "New Mod" button
 3. Fill in the name, author, and description for the mod
-4. Navigate to <code>mods/(mod name)</code> and insert the mod's <code>data_win32</code> folder along with any other folders it uses
+4. Navigate to `mods/(mod name)` and insert the mod's `data_win32` folder along with any other folders it uses
 
 Running with Mods
 -----------------
