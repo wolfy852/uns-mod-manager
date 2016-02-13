@@ -18,18 +18,17 @@ namespace SA2ModManager
 
 		//const string datadllpath = @"resource\gd_PC\DLL\Win32\Data_DLL.dll";
 		//const string datadllorigpath = @"resource\gd_PC\DLL\Win32\Data_DLL_orig.dll";
-		const string loaderinipath = @"mods\UNSRModLoader.ini";
+		const string loaderinipath = @"mods\UNS4ModLoader.ini";
 		//const string loaderdllpath = @"mods\SA2ModLoader.dll";
 		LoaderInfo loaderini;
 		Dictionary<string, ModInfo> mods;
-        // Commented these out for now, since UNSR has no cheat codes.
+		// Commented these out for now, since UNSR has no cheat codes.
 		//const string codexmlpath = @"mods\Codes.xml";
 		//const string codedatpath = @"mods\Codes.dat";
 		//CodeList codes;
 		//bool installed;
-        bool modsactive;
-        bool uselauncher;
-        bool closeafterlaunch;
+		bool modsactive;
+		bool closeafterlaunch;
 
 		private void MainForm_Load(object sender, EventArgs e)
 		{
@@ -49,15 +48,15 @@ namespace SA2ModManager
 					case 3:
 						Icon = Properties.Resources.sharingan;
 						break;
-                    case 4:
-                        Icon = Properties.Resources.kakashi;
-                        break;
-                    case 5:
-                        Icon = Properties.Resources.madara;
-                        break;
-                    case 6:
-                        Icon = Properties.Resources.sasuke;
-                        break;
+					case 4:
+						Icon = Properties.Resources.kakashi;
+						break;
+					case 5:
+						Icon = Properties.Resources.madara;
+						break;
+					case 6:
+						Icon = Properties.Resources.sasuke;
+						break;
 				}
 
 			if (File.Exists(loaderinipath))
@@ -67,39 +66,34 @@ namespace SA2ModManager
 
 			LoadModList();
 
-            if (!launcherCheckBox.Checked)
-                uselauncher = false;
-            else
-                uselauncher = true;
+			if (!closeCheckBox.Checked)
+				closeafterlaunch = false;
+			else
+				closeafterlaunch = true;
 
-            if (!closeCheckBox.Checked)
-                closeafterlaunch = false;
-            else
-                closeafterlaunch = true;
+			string modfolder = Path.Combine(Environment.CurrentDirectory, "mods\\");
+			foreach (ListViewItem mod in modListView.Items)
+			{
+				string[] allmods = Directory.GetDirectories(modfolder);
+				string[] curfiles = Directory.GetFiles(modfolder + (allmods[mod.Index].Remove(0, modfolder.Length)));
+				string[] cursubdirs = Directory.GetDirectories(modfolder + (allmods[mod.Index].Remove(0, modfolder.Length)));
+				for (int i = 0; i < cursubdirs.Length; i++)
+				{
+					if (Directory.Exists(cursubdirs[i].Remove(0, allmods[mod.Index].Length + 1)))
+					{
+						modsactive = true;
+						installButton.Text = "Disable Mods";
+					}
+					else
+					{
+						modsactive = false;
+						installButton.Text = "Enable Mods";
+					}
+				}
+			}
 
-            string modfolder = Path.Combine(Environment.CurrentDirectory, "mods\\");
-            foreach (ListViewItem mod in modListView.Items)
-            {
-                string[] allmods = Directory.GetDirectories(modfolder);
-                string[] curfiles = Directory.GetFiles(modfolder + (allmods[mod.Index].Remove(0, modfolder.Length)));
-                string[] cursubdirs = Directory.GetDirectories(modfolder + (allmods[mod.Index].Remove(0, modfolder.Length)));
-                for (int i = 0; i < cursubdirs.Length; i++)
-                {
-                    if (Directory.Exists(cursubdirs[i].Remove(0, allmods[mod.Index].Length + 1)))
-                    {
-                        modsactive = true;
-                        installButton.Text = "Disable Mods";
-                    }
-                    else
-                    {
-                        modsactive = false;
-                        installButton.Text = "Enable Mods";
-                    }
-                }
-            }
-
-            #region loader stuff, not needed since the loading method is different for the UNS games
-            /* if (!File.Exists(datadllpath))
+			#region loader stuff, not needed since the loading method is different for the UNS games
+			/* if (!File.Exists(datadllpath))
 			{
 				MessageBox.Show(this, "Data_DLL.dll could not be found.\n\nCannot determine state of installation.", Text, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				installButton.Hide();
@@ -120,9 +114,9 @@ namespace SA2ModManager
 			catch { codes = new CodeList() { Codes = new List<Code>() }; }
 			foreach (Code item in codes.Codes)
 				codesCheckedListBox.Items.Add(item.Name, item.Enabled);*/
-            #endregion
+			#endregion
 
-        }
+		}
 
 		private void modListView_SelectedIndexChanged(object sender, EventArgs e)
 		{
@@ -171,10 +165,10 @@ namespace SA2ModManager
 			foreach (ListViewItem item in modListView.CheckedItems)
 				loaderini.Mods.Add((string)item.Tag);
 			IniFile.Serialize(loaderini, loaderinipath);
-            SetMods();
+			SetMods();
 
-            #region old stuff for cheat codes
-            /*for (int i = 0; i < codes.Codes.Count; i++)
+			#region old stuff for cheat codes
+			/*for (int i = 0; i < codes.Codes.Count; i++)
 				codes.Codes[i].Enabled = codesCheckedListBox.GetItemChecked(i);
 			codes.Save(codexmlpath);
 			using (FileStream fs = File.Create(codedatpath))
@@ -192,85 +186,81 @@ namespace SA2ModManager
 			}*/
 		}
 
-        /*private void WriteCodes(IEnumerable<CodeLine> codes, BinaryWriter writer)
-        {
-            foreach (CodeLine line in codes)
-            {
-                writer.Write((byte)line.Type);
-                uint address;
-                if (line.Address.StartsWith("r"))
-                    address = uint.Parse(line.Address.Substring(1), System.Globalization.NumberStyles.None, System.Globalization.NumberFormatInfo.InvariantInfo);
-                else
-                    address = uint.Parse(line.Address, System.Globalization.NumberStyles.HexNumber);
-                if (line.Pointer)
-                    address |= 0x80000000u;
-                writer.Write(address);
-                if (line.Pointer)
-                    if (line.Offsets != null)
-                    {
-                        writer.Write((byte)line.Offsets.Count);
-                        foreach (int off in line.Offsets)
-                            writer.Write(off);
-                    }
-                    else
-                        writer.Write((byte)0);
-                if (line.Type == CodeType.ifkbkey)
-                    writer.Write((int)(Keys)Enum.Parse(typeof(Keys), line.Value));
-                else
-                    switch (line.ValueType)
-                    {
-                        case ValueType.@decimal:
-                            switch (line.Type)
-                            {
-                                case CodeType.writefloat:
-                                case CodeType.addfloat:
-                                case CodeType.subfloat:
-                                case CodeType.mulfloat:
-                                case CodeType.divfloat:
-                                case CodeType.ifeqfloat:
-                                case CodeType.ifnefloat:
-                                case CodeType.ifltfloat:
-                                case CodeType.iflteqfloat:
-                                case CodeType.ifgtfloat:
-                                case CodeType.ifgteqfloat:
-                                    writer.Write(float.Parse(line.Value, System.Globalization.NumberStyles.Float, System.Globalization.NumberFormatInfo.InvariantInfo));
-                                    break;
-                                default:
-                                    writer.Write(unchecked((int)long.Parse(line.Value, System.Globalization.NumberStyles.Integer, System.Globalization.NumberFormatInfo.InvariantInfo)));
-                                    break;
-                            }
-                            break;
-                        case ValueType.hex:
-                            writer.Write(uint.Parse(line.Value, System.Globalization.NumberStyles.HexNumber, System.Globalization.NumberFormatInfo.InvariantInfo));
-                            break;
-                    }
-                writer.Write(line.RepeatCount ?? 1);
-                if (line.IsIf)
-                {
-                    WriteCodes(line.TrueLines, writer);
-                    if (line.FalseLines.Count > 0)
-                    {
-                        writer.Write((byte)CodeType.@else);
-                        WriteCodes(line.FalseLines, writer);
-                    }
-                    writer.Write((byte)CodeType.endif);
-                }
-            }
-        }*/
-            #endregion
-
-        private void saveAndPlayButton_Click(object sender, EventArgs e)
+		/*private void WriteCodes(IEnumerable<CodeLine> codes, BinaryWriter writer)
 		{
-            string launchexe;
-            if (!uselauncher)
-                launchexe = "NSUNSR.exe";
-            else
-                launchexe = "NSUNSR_launcher.exe";
+			foreach (CodeLine line in codes)
+			{
+				writer.Write((byte)line.Type);
+				uint address;
+				if (line.Address.StartsWith("r"))
+					address = uint.Parse(line.Address.Substring(1), System.Globalization.NumberStyles.None, System.Globalization.NumberFormatInfo.InvariantInfo);
+				else
+					address = uint.Parse(line.Address, System.Globalization.NumberStyles.HexNumber);
+				if (line.Pointer)
+					address |= 0x80000000u;
+				writer.Write(address);
+				if (line.Pointer)
+					if (line.Offsets != null)
+					{
+						writer.Write((byte)line.Offsets.Count);
+						foreach (int off in line.Offsets)
+							writer.Write(off);
+					}
+					else
+						writer.Write((byte)0);
+				if (line.Type == CodeType.ifkbkey)
+					writer.Write((int)(Keys)Enum.Parse(typeof(Keys), line.Value));
+				else
+					switch (line.ValueType)
+					{
+						case ValueType.@decimal:
+							switch (line.Type)
+							{
+								case CodeType.writefloat:
+								case CodeType.addfloat:
+								case CodeType.subfloat:
+								case CodeType.mulfloat:
+								case CodeType.divfloat:
+								case CodeType.ifeqfloat:
+								case CodeType.ifnefloat:
+								case CodeType.ifltfloat:
+								case CodeType.iflteqfloat:
+								case CodeType.ifgtfloat:
+								case CodeType.ifgteqfloat:
+									writer.Write(float.Parse(line.Value, System.Globalization.NumberStyles.Float, System.Globalization.NumberFormatInfo.InvariantInfo));
+									break;
+								default:
+									writer.Write(unchecked((int)long.Parse(line.Value, System.Globalization.NumberStyles.Integer, System.Globalization.NumberFormatInfo.InvariantInfo)));
+									break;
+							}
+							break;
+						case ValueType.hex:
+							writer.Write(uint.Parse(line.Value, System.Globalization.NumberStyles.HexNumber, System.Globalization.NumberFormatInfo.InvariantInfo));
+							break;
+					}
+				writer.Write(line.RepeatCount ?? 1);
+				if (line.IsIf)
+				{
+					WriteCodes(line.TrueLines, writer);
+					if (line.FalseLines.Count > 0)
+					{
+						writer.Write((byte)CodeType.@else);
+						WriteCodes(line.FalseLines, writer);
+					}
+					writer.Write((byte)CodeType.endif);
+				}
+			}
+		}*/
+			#endregion
+
+		private void saveAndPlayButton_Click(object sender, EventArgs e)
+		{
+			string launchexe = "NSUNS4.exe";
 			Save();
 			System.Diagnostics.Process.Start(loaderini.Mods.Select((item) => mods[item].EXEFile)
 				.FirstOrDefault((item) => !string.IsNullOrEmpty(item)) ?? launchexe);
-            if (closeafterlaunch)
-			    Close();
+			if (closeafterlaunch)
+				Close();
 		}
 
 		private void saveButton_Click(object sender, EventArgs e)
@@ -282,19 +272,19 @@ namespace SA2ModManager
 		{
 			if (modsactive)
 			{
-                ClearMods();
+				ClearMods();
 				installButton.Text = "Enable Mods";
 			}
 			else
 			{
-                SetMods();
+				SetMods();
 				installButton.Text = "Disable Mods";
 			}
 			modsactive = !modsactive;
 		}
 
-        #region more old stuff for cheat codes
-        /*private void codesCheckedListBox_SelectedIndexChanged(object sender, EventArgs e)
+		#region more old stuff for cheat codes
+		/*private void codesCheckedListBox_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			if (codesCheckedListBox.SelectedIndices.Count == 0)
 				codeUpButton.Enabled = codeDownButton.Enabled = false;
@@ -330,9 +320,9 @@ namespace SA2ModManager
 			codesCheckedListBox.Items.Insert(i + 1, item);
 			codesCheckedListBox.EndUpdate();
 		}*/
-        #endregion
+		#endregion
 
-        private void LoadModList()
+		private void LoadModList()
 		{
 			mods = new Dictionary<string, ModInfo>();
 			string modsfolder = Path.Combine(Environment.CurrentDirectory, "mods");
@@ -358,44 +348,44 @@ namespace SA2ModManager
 			modListView.EndUpdate();
 		}
 
-        private void SetMods()
-        {
-            ClearMods();
-            string modfolder = Path.Combine(Environment.CurrentDirectory, "mods\\");
-            if (modsactive)
-            {
-                foreach (ListViewItem item in modListView.Items)
-                {
-                    if (item.Checked)
-                        DirectoryCopy(modfolder + loaderini.Mods[item.Index], Directory.GetCurrentDirectory(), true);
-                }
-            }
-        }
+		private void SetMods()
+		{
+			ClearMods();
+			string modfolder = Path.Combine(Environment.CurrentDirectory, "mods\\");
+			if (modsactive)
+			{
+				foreach (ListViewItem item in modListView.Items)
+				{
+					if (item.Checked)
+						DirectoryCopy(modfolder + loaderini.Mods[item.Index], Directory.GetCurrentDirectory(), true);
+				}
+			}
+		}
 
-        private void ClearMods()
-        {
-            string modfolder = Path.Combine(Environment.CurrentDirectory, "mods\\");
-            foreach (ListViewItem mod in modListView.Items)
-            {
-                string[] allmods = Directory.GetDirectories(modfolder);
-                string[] curfiles = Directory.GetFiles(modfolder + (allmods[mod.Index].Remove(0, modfolder.Length)));
-                string[] cursubdirs = Directory.GetDirectories(modfolder + (allmods[mod.Index].Remove(0, modfolder.Length)));
-                for (int i = 0; i < cursubdirs.Length; i++)
-                {
-                    if (Directory.Exists(cursubdirs[i].Remove(0, allmods[mod.Index].Length + 1)))
-                    {
-                        Directory.Delete(cursubdirs[i].Remove(0, allmods[mod.Index].Length + 1), true);
-                    }
-                }
-                for (int i = 0; i < curfiles.Length; i++)
-                {
-                    if (File.Exists(Path.GetFileName(curfiles[i])))
-                    {
-                        File.Delete(Path.GetFileName(curfiles[i]));
-                    }
-                }
-            }
-        }
+		private void ClearMods()
+		{
+			string modfolder = Path.Combine(Environment.CurrentDirectory, "mods\\");
+			foreach (ListViewItem mod in modListView.Items)
+			{
+				string[] allmods = Directory.GetDirectories(modfolder);
+				string[] curfiles = Directory.GetFiles(modfolder + (allmods[mod.Index].Remove(0, modfolder.Length)));
+				string[] cursubdirs = Directory.GetDirectories(modfolder + (allmods[mod.Index].Remove(0, modfolder.Length)));
+				for (int i = 0; i < cursubdirs.Length; i++)
+				{
+					if (Directory.Exists(cursubdirs[i].Remove(0, allmods[mod.Index].Length + 1)))
+					{
+						Directory.Delete(cursubdirs[i].Remove(0, allmods[mod.Index].Length + 1), true);
+					}
+				}
+				for (int i = 0; i < curfiles.Length; i++)
+				{
+					if (File.Exists(Path.GetFileName(curfiles[i])))
+					{
+						File.Delete(Path.GetFileName(curfiles[i]));
+					}
+				}
+			}
+		}
 
 		private void buttonRefreshModList_Click(object sender, EventArgs e)
 		{
@@ -405,6 +395,8 @@ namespace SA2ModManager
 
 		private void buttonModsFolder_Click(object sender, EventArgs e)
 		{
+			if (!Directory.Exists(Path.Combine(Environment.CurrentDirectory, "mods\\")))
+				Directory.CreateDirectory(Path.Combine(Environment.CurrentDirectory, "mods\\"));
 			System.Diagnostics.Process.Start(@"mods");
 		}
 
@@ -420,44 +412,44 @@ namespace SA2ModManager
 			}
 		}
 
-        private void DirectoryCopy(string sourceDirName, string destDirName, bool copySubDirs)
-        {
-            // Get the subdirectories for the specified directory.
-            DirectoryInfo dir = new DirectoryInfo(sourceDirName);
-            DirectoryInfo[] dirs = dir.GetDirectories();
+		private void DirectoryCopy(string sourceDirName, string destDirName, bool copySubDirs)
+		{
+			// Get the subdirectories for the specified directory.
+			DirectoryInfo dir = new DirectoryInfo(sourceDirName);
+			DirectoryInfo[] dirs = dir.GetDirectories();
 
-            if (!dir.Exists)
-            {
-                throw new DirectoryNotFoundException(
-                    "Source directory does not exist or could not be found: "
-                    + sourceDirName);
-            }
+			if (!dir.Exists)
+			{
+				throw new DirectoryNotFoundException(
+					"Source directory does not exist or could not be found: "
+					+ sourceDirName);
+			}
 
-            // If the destination directory doesn't exist, create it. 
-            if (!Directory.Exists(destDirName))
-            {
-                Directory.CreateDirectory(destDirName);
-            }
+			// If the destination directory doesn't exist, create it. 
+			if (!Directory.Exists(destDirName))
+			{
+				Directory.CreateDirectory(destDirName);
+			}
 
-            // Get the files in the directory and copy them to the new location.
-            FileInfo[] files = dir.GetFiles();
-            foreach (FileInfo file in files)
-            {
-                string temppath = Path.Combine(destDirName, file.Name);
-                if (file.Name != "mod.ini")
-                    file.CopyTo(temppath, true); // Boolean is set to true to allow File.CopyTo to overwrite any files already within the folder.
-            }
+			// Get the files in the directory and copy them to the new location.
+			FileInfo[] files = dir.GetFiles();
+			foreach (FileInfo file in files)
+			{
+				string temppath = Path.Combine(destDirName, file.Name);
+				if (file.Name != "mod.ini")
+					file.CopyTo(temppath, true); // Boolean is set to true to allow File.CopyTo to overwrite any files already within the folder.
+			}
 
-            // If copying subdirectories, copy them and their contents to new location. 
-            if (copySubDirs)
-            {
-                foreach (DirectoryInfo subdir in dirs)
-                {
-                    string temppath = Path.Combine(destDirName, subdir.Name);
-                    DirectoryCopy(subdir.FullName, temppath, copySubDirs);
-                }
-            }
-        }
+			// If copying subdirectories, copy them and their contents to new location. 
+			if (copySubDirs)
+			{
+				foreach (DirectoryInfo subdir in dirs)
+				{
+					string temppath = Path.Combine(destDirName, subdir.Name);
+					DirectoryCopy(subdir.FullName, temppath, copySubDirs);
+				}
+			}
+		}
 	}
 
 	class LoaderInfo
@@ -487,8 +479,8 @@ namespace SA2ModManager
 
 	[XmlRoot(Namespace = "http://www.sonicretro.org")]
 
-    #region code class, list, and types
-    /*public class CodeList
+	#region code class, list, and types
+	/*public class CodeList
 	{
 		static readonly XmlSerializer serializer = new XmlSerializer(typeof(CodeList));
 
@@ -652,9 +644,9 @@ namespace SA2ModManager
 		endif,
 		newregs
 	}*/
-    #endregion
+	#endregion
 
-    public enum ValueType
+	public enum ValueType
 	{
 		@decimal,
 		hex
